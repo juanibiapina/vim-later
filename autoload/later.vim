@@ -11,3 +11,7 @@ function! later#load_quickfix()
   cfile! .later
   let &g:errorformat = efmtbak
 endfunction
+
+function! later#clear()
+  call delete(".later")
+endfunction

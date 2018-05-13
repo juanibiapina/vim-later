@@ -36,4 +36,20 @@ RSpec.describe "later#add" do
     result = vim.command 'echo expand("%")'
     expect(result).to eq("dir1/file1")
   end
+
+  it "clears later file" do
+    # given
+    vim.edit "dir1/file1"
+    vim.command 'call later#add()'
+    vim.edit "dir2/file2"
+    vim.command 'call later#add()'
+
+    # when
+    vim.command 'call later#clear()'
+
+    # then
+    vim.edit ".later"
+    result = vim.command 'echo getline(1)'
+    expect(result).to eq("")
+  end
 end
