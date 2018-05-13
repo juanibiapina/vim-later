@@ -6,10 +6,13 @@ RSpec.describe "later#add" do
   end
 
   it "adds an entry to the later file" do
+    # given
     vim.edit "dir1/file1"
 
+    # when
     vim.command 'call later#add()'
 
+    # then
     vim.edit ".later"
     result = vim.command 'echo getline(1)'
     expect(result).to eq("dir1/file1:1")
