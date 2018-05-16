@@ -1,0 +1,19 @@
+*later.txt* save file locations for later usage
+
+1. Introduction
+
+Later allows you to save file locations for later usage, just like vim marks.
+
+2. Plug mappings
+
+- <Plug>LaterAdd
+
+Adds the current file location to the list
+
+- <Plug>LaterClear
+
+Clears the location list
+
+- <Plug>LaterLoadQuickfix
+
+Loads the location list into the quickfix
