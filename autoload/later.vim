@@ -7,9 +7,9 @@ endfunction
 
 function! later#load_quickfix()
   let efmtbak = &g:errorformat
-  let &g:errorformat = '%f:%l'
+  set errorformat=%f:%l
   cfile! .later
-  let &g:errorformat = efmtbak
+  set errorformat=efmtbak
 endfunction
 
 function! later#clear()
