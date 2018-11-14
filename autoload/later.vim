@@ -5,6 +5,10 @@ function! later#add()
   exec "silent ! echo " . file . ":" . line . ">> .later"
 endfunction
 
+function! later#edit()
+  edit .later
+endfunction
+
 function! later#load_quickfix()
   let efmtbak = &g:errorformat
   set errorformat=%f:%l

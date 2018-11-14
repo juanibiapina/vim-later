@@ -18,6 +18,19 @@ RSpec.describe "later#add" do
     expect(result).to eq("dir1/file1:1")
   end
 
+  it "opens the later file for editing" do
+    # given
+    vim.edit "dir1/file1"
+    vim.command 'call later#add()'
+
+    # when
+    vim.command 'call later#edit()'
+
+    # then
+    result = vim.command 'echo getline(1)'
+    expect(result).to eq("dir1/file1:1")
+  end
+
   it "loads the later file into the quickfix list" do
     # given
     vim.edit "dir1/file1"
